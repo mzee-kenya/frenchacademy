@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C Program",
+            "type": "shell",
+            "command": "C:/msys64/ucrt64/bin/gcc.exe",
+            "args": [
+                "-Wall",
+                "-Wextra",
+                "-g3",
+                "${file}",
+                "-o",
+                "${fileDirname}/output/${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Run C Program",
+            "type": "shell",
+            "command": "${fileDirname}/output/${fileBasenameNoExtension}.exe",
+            "group": "none"
+        },
+        {
+            "label": "Build and Run",
+            "dependsOn": [
+                "Build C Program",
+                "Run C Program"
+            ],
+            "dependsOrder": "sequence"
+        }
+    ]
+}

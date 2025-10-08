@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sandra Kush — Software Engineering Student | Class Rep (Group B)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-grid">
+            <div class="brand">
+                <div class="avatar">SK</div>
+                <div>
+                    <h1>Sandra Kush</h1>
+                    <p class="lead">Software Engineering student — Kirinyaga University · Class Rep, Group B</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Birthday banner -->
+        <div class="birthday-banner" role="region" aria-label="birthday banner">
+            <div class="container banner-inner">
+                <div class="banner-text">Happy Birthday, Sandra! 🎉</div>
+                <button id="celebrateBtn" class="button">Celebrate</button>
+            </div>
+        </div>
+
+    <main class="container">
+        <section id="about" class="card">
+            <h2>About</h2>
+            <p>Hi — I’m Sandra, a Software Engineering student at Kirinyaga University and the class representative for Group B. I enjoy building simple, useful web apps and learning full-stack development. As class rep I coordinate group activities, communicate with staff, and help classmates access resources.</p>
+        </section>
+
+        <section id="education" class="card">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <strong>Kirinyaga University</strong>, BSc Software Engineering (studying)
+                    <div class="muted">Relevant coursework: Data Structures, Databases, Web Development, Software Design</div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills" class="card split">
+            <div>
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>C, C++ basics</li>
+                    <li>Git & Version Control</li>
+                    <li>Databases (SQL)</li>
+                    <li>Problem solving & teamwork</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Class Rep Highlights</h2>
+                <ul>
+                    <li>Organised weekly study sessions for Group B</li>
+                    <li>Liaised with faculty to arrange guest lectures and resources</li>
+                    <li>Collected and shared timetables and assignment updates</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects" class="card">
+            <h2>Projects</h2>
+            <div class="projects">
+                <article class="project">
+                    <h3>Project Tracker (class project)</h3>
+                    <p>A small web app to track assignments and deadlines for our group. Built with HTML, CSS and JavaScript.</p>
+                </article>
+
+                <article class="project">
+                    <h3>Simple Chatbot</h3>
+                    <p>A command-line chatbot prototype written in C for practising input parsing and state.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="card">
+            <h2>Contact</h2>
+            <p>If you want to get in touch, email <a href="mailto:sandra.kush@example.com">sandra.kush@example.com</a> or connect via LinkedIn (add your link here).</p>
+            <p><a class="button" href="#">Download resume (placeholder)</a></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>© <span id="year"></span> Sandra Kush — Kirinyaga University · Group B</small>
+        </div>
+    </footer>
+
+    <script>
+        // insert current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+        <!-- Birthday modal + confetti script -->
+        <div id="birthdayModal" class="birthday-modal" aria-hidden="true">
+            <div class="birthday-modal-content" role="dialog" aria-modal="true" aria-labelledby="birthdayTitle">
+                <button id="closeBirthday" class="modal-close" aria-label="Close">✕</button>
+                <h2 id="birthdayTitle">Happy Birthday, Sandra! 🎂</h2>
+                <p class="big">Wishing you a joyful year ahead — from your friends and classmates at Kirinyaga University, Group B.</p>
+                <div class="cake">🎂</div>
+                <p><button id="playAgain" class="button">Celebrate again</button></p>
+            </div>
+        </div>
+
+        <script>
+        // Small confetti implementation
+        (function(){
+            const celebrateBtn = document.getElementById('celebrateBtn');
+            const modal = document.getElementById('birthdayModal');
+            const closeBtn = document.getElementById('closeBirthday');
+            const playAgain = document.getElementById('playAgain');
+
+            function openModal(){
+                modal.setAttribute('aria-hidden','false');
+                modal.style.display = 'flex';
+                launchConfetti();
+            }
+            function closeModal(){
+                modal.setAttribute('aria-hidden','true');
+                modal.style.display = 'none';
+            }
+
+            celebrateBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            playAgain.addEventListener('click', launchConfetti);
+
+            // Auto-open shortly after load as a surprise
+            window.addEventListener('load', function(){
+                setTimeout(openModal, 1200);
+            });
+
+            // Confetti: canvas full-screen particles
+            function launchConfetti(){
+                const canvas = document.createElement('canvas');
+                canvas.style.position = 'fixed';
+                canvas.style.left = 0;
+                canvas.style.top = 0;
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.pointerEvents = 'none';
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                document.body.appendChild(canvas);
+                const ctx = canvas.getContext('2d');
+                const particles = [];
+                const colors = ['#ff6b6b','#ffd93d','#6bf2c0','#6b9bff','#c96bff'];
+
+                for(let i=0;i<140;i++){
+                    particles.push({
+                        x: Math.random()*canvas.width,
+                        y: Math.random()*-canvas.height,
+                        r: 6+Math.random()*8,
+                        d: Math.random()*20+10,
+                        tilt: Math.random()*10-10,
+                        color: colors[Math.floor(Math.random()*colors.length)],
+                        speed: 1+Math.random()*3,
+                    })
+                }
+
+                let frame = 0;
+                function draw(){
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    for(let p of particles){
+                        ctx.beginPath();
+                        ctx.fillStyle = p.color;
+                        ctx.save();
+                        ctx.translate(p.x,p.y);
+                        ctx.rotate(p.tilt * Math.PI/180);
+                        ctx.fillRect(-p.r/2, -p.r/2, p.r, p.r*1.6);
+                        ctx.restore();
+                        p.y += p.speed;
+                        p.x += Math.sin(frame/10 + p.d) * 0.8;
+                        p.tilt += 0.5;
+                        if(p.y > canvas.height + 20){
+                            p.y = -10 - Math.random()*canvas.height;
+                            p.x = Math.random()*canvas.width;
+                        }
+                    }
+                    frame++;
+                    if(frame < 900){
+                        requestAnimationFrame(draw);
+                    } else {
+                        // remove after animation
+                        canvas.remove();
+                    }
+                }
+                draw();
+            }
+        })();
+        </script>
+</body>
+</html>

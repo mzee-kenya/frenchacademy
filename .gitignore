@@ -1,0 +1,35 @@
+# Python / venv
+.venv/
+__pycache__/
+*.pyc
+
+# Visual Studio Code
+.vscode/
+
+# Build artifacts / binaries
+*.exe
+*.o
+*.obj
+*.dll
+*.lib
+*.a
+*.so
+*.pdb
+
+# Large MSYS2 / toolchain directories (not needed in repo)
+mingw32/
+mingw64/
+clang64/
+clangarm64/
+ucrt64/
+usr/
+var/
+opt/
+output/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/

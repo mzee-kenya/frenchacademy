@@ -1,0 +1,89 @@
+/* Colorful responsive styles for Sandra Kush portfolio */
+:root{
+  --max-width:1100px;
+    --bg-start:#eef9ff; /* very light blue */
+    --bg-end:#e6f3ff;
+    --card:#ffffff;
+    --muted:#45607a;
+    --accent-1:#7fb7ff; /* soft blue */
+    --accent-2:#66a3ff; /* medium blue */
+    --accent-3:#4d8cff; /* deeper blue */
+    --accent-4:#2e6cff; /* strong blue */
+    --accent-5:#d0e8ff; /* pale blue */
+  --glass: rgba(255,255,255,0.6);
+}
+*{box-sizing:border-box}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;margin:0;
+    background:linear-gradient(135deg,var(--bg-start),var(--bg-end));
+  color:#0b1320; -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:28px}
+  .container{max-width:var(--max-width);margin:0 auto;padding:28px;text-align:center}
+.site-header{background:linear-gradient(90deg,var(--accent-4),var(--accent-5));color:white;padding:18px 0;border-bottom:4px solid rgba(255,255,255,0.12)}
+.header-grid{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:14px;align-items:center}
+.avatar{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,var(--accent-1),var(--accent-3));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;box-shadow:0 8px 24px rgba(120,120,140,0.12);transform:translateZ(0)}
+  h1{margin:0;font-size:22px}
+  .header-grid{display:flex;align-items:center;justify-content:center;gap:12px;flex-direction:column}
+  .brand{display:flex;gap:14px;align-items:center;flex-direction:row}
+  .avatar{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--accent-1),var(--accent-3));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;box-shadow:0 14px 34px rgba(30,60,120,0.12);transform:translateZ(0)}
+h1{margin:0;font-size:22px}
+.lead{margin:4px 0 0;color:rgba(255,255,255,0.92);font-size:13px}
+.nav{margin-top:10px}
+.nav a{margin:0 10px;color:rgba(255,255,255,0.95);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:999px;background:transparent;transition:background .18s ease}
+.nav a:hover{background:rgba(255,255,255,0.08)}
+
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(245,252,255,0.92));padding:20px;border-radius:14px;margin-top:20px;box-shadow:0 12px 34px rgba(10,40,80,0.06);transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 28px 56px rgba(10,40,80,0.12)}
+.muted{color:var(--muted);font-size:13px}
+.split{display:grid;grid-template-columns:1fr;gap:18px}
+.skills-list{columns:2;list-style:disc;margin:8px 0 0;padding-left:18px}
+
+.projects{display:grid;grid-template-columns:1fr;gap:18px}
+.project{padding:16px;border-radius:12px;color:var(--muted);position:relative;overflow:hidden;min-height:100px;text-align:left}
+.project h3{color:var(--accent-4)}
+.project p{color:rgba(10,30,50,0.8)}
+.project h3{margin:0 0 6px}
+.project p{margin:0;color:rgba(255,255,255,0.92)}
+
+/* colorful project variants */
+.project.variant-1{background:linear-gradient(135deg,var(--accent-5),var(--accent-1));color:rgba(7,30,60,0.98)}
+.project.variant-2{background:linear-gradient(135deg,var(--accent-2),#e8f4ff);color:rgba(7,30,60,0.98)}
+.project.variant-3{background:linear-gradient(135deg,#e8faff,var(--accent-3));color:rgba(7,30,60,0.98)}
+.project.variant-4{background:linear-gradient(135deg,#dceeff,var(--accent-4));color:rgba(7,30,60,0.98)}
+.project.variant-5{background:linear-gradient(135deg,var(--accent-5),#f3f9ff);color:rgba(7,30,60,0.98)}
+
+.button{display:inline-block;padding:10px 16px;background:linear-gradient(90deg,var(--accent-1),var(--accent-4));color:white;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 14px 30px rgba(50,100,200,0.12);border:0}
+.button:hover{transform:translateY(-3px);box-shadow:0 20px 38px rgba(30,90,200,0.14)}
+
+.site-footer{padding:20px 0;margin-top:28px;color:var(--muted);text-align:center}
+
+@media(min-width:880px){
+  .split{grid-template-columns:1fr 1fr}
+  .projects{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Birthday banner */
+.birthday-banner{background:linear-gradient(90deg,var(--accent-2),var(--accent-1));padding:14px 0;border-radius:14px;margin-top:18px;color:#08304a;box-shadow:0 12px 30px rgba(30,60,100,0.06)}
+.banner-inner{display:flex;align-items:center;justify-content:center;gap:18px;flex-direction:column}
+.banner-text{font-weight:900;color:var(--accent-4);font-size:18px}
+
+/* Modal */
+.birthday-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(10,20,35,0.35), rgba(10,20,35,0.55));z-index:1200}
+.birthday-modal-content{background:linear-gradient(180deg,#ffffff, #f4fbff);padding:28px;border-radius:14px;max-width:560px;width:92%;text-align:center;position:relative;box-shadow:0 22px 58px rgba(10,30,70,0.28)}
+.modal-close{position:absolute;right:14px;top:14px;border:0;background:transparent;font-size:18px}
+.birthday-modal .big{font-size:20px;margin:12px 0;color:#0b1b2b}
+.cake{font-size:56px;margin:10px 0}
+
+/* subtle floating animation for avatar */
+@keyframes floaty { 0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)} }
+.avatar{animation:floaty 4s ease-in-out infinite}
+
+/* playful confetti helper classes (used by JS-created canvas) */
+.confetti{pointer-events:none}
+
+/* small playful avatar font */
+.avatar{font-family:Georgia,serif}
+
+
